@@ -1,0 +1,58 @@
+{% include 'header.htm' %}
+{% include 'menu.htm' %}  
+                  
+                    <!-- Right column: content -->
+                    <div class="tm-right-column">
+                        <figure>
+                            <img src="/static/img/neaty-01.jpg" alt="Header image" class="img-fluid">    
+                        </figure>
+
+                        <div class="tm-content-div">
+                        <h1>User Login</h1> 
+                        <hr>
+                        <form action="/login" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                  <div class="col-lg-12 col-md-12">
+                                    <input type="email" placeholder="Email" name="email" class="form-control" required>
+                                    
+                                </div>
+
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <input type="password" placeholder="Password" name="pwd" class="form-control" required>
+                                    
+                                </div>
+
+                                
+                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <button class="btn btn-danger" type="submit">Login User</button>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <b class="text-danger"></b>
+
+                                    </div>
+
+                                </div>
+
+                            </div><br>
+
+                        </form>
+
+                        </div>  
+
+                            <!-- Welcome section -->
+                            <footer>
+                                <p class="tm-copyright-p">Copyright &copy; <span class="tm-current-year">2017</span> Your Company 
+                                
+                                | Designed by TemplateMo</p>
+                            </footer>
+                        </div>  
+                        
+                    </div> <!-- Right column: content -->
+     {%include 'footer.htm'%}          

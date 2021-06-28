@@ -1,0 +1,54 @@
+{% include 'header.htm' %}
+
+{% include 'student/smenu.htm' %}
+
+<div class="tm-right-column">
+   
+    <div class="tm-content-div">
+        <h1>Ask Question</h1>  
+    <hr>
+        <form action="/question/save" method="POST">
+            {%csrf_token%}
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <textarea cols="40" name="question" rows="3"></textarea>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <button type="submit" class="btn btn-info">Send Question</button>
+                </div>
+
+            </div> 
+
+
+
+        </form>
+        <hr>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Question</th>
+                <th>Date</th>
+                <th>Response</th>
+
+            </tr>
+            {% for ob in list %}
+            <tr>
+                <th>{{ob.ques}}</th>
+                <th>{{ob.quesDate}}</th>
+                <th>
+                    <a href='/question/viewans?qid={{ob.id}}'>
+                    <b class="btn btn-info">View Answer</b>
+                </a>
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+    </div>
+</div>
+
+
+
+{%include 'footer.htm'%}  

@@ -1,0 +1,38 @@
+{% include 'header.htm' %}
+
+{% include 'student/smenu.htm' %}
+
+<div class="tm-right-column">
+   
+    <div class="tm-content-div">
+        <h1>View Answers</h1>  
+    <hr>
+        
+        <hr>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Answer</th>
+                <th>Date</th>
+                <th>Faculty</th>
+
+            </tr>
+            {% for ob in answers %}
+            <tr>
+                <th>{{ob.ans}}</th>
+                <th>{{ob.ansDate}}</th>
+                <th>
+                    {{ob.faculty.user_name}}
+                </th>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+    </div>
+</div>
+
+
+
+{%include 'footer.htm'%}  

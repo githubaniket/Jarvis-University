@@ -1,0 +1,64 @@
+{% include 'header.htm' %}
+
+{% include 'faculty/fmenu.htm' %}
+
+<script>
+        function send(evt, ob, qid)
+        {
+            var txt = ob.value;
+            if(evt.keyCode==13)
+            {
+                if(txt.length>0)
+                {
+                        var req = new XMLHttpRequest();
+                        var URL = "/question/saveans?qid="+qid+"&ans="+txt;
+                        req.open("GET", URL);
+                        req.onreadystatechange = function()
+                        {
+                            if(req.readyState==4)
+                            {
+                                alert(req.responseText);
+                                ob.value = '';
+                            }
+                        }
+                        req.send();
+                }
+            }
+        }
+
+
+</script>
+
+<div class="tm-right-column">
+   
+    <div class="tm-content-div">
+        <h1>View Question</h1>  
+    <hr>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Student Name</th>
+                <th>Date</th>
+                <th>Question</th>
+                
+                
+            </tr>
+            {% for ob in list %}
+            <tr>
+                <th style="width : 20%">{{ob.student.user_name}}</th>
+                <th style="width : 20%" >{{ob.quesDate}}</th>
+                <th style="width : 60%">{{ob.ques}}</th>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <input type="text" onkeyup="send(event,this,'{{ob.id}}')" placeholder="Answer" class="form-control">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</div>
+
+
+{%include 'footer.htm'%}  
